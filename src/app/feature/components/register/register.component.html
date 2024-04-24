@@ -1,0 +1,35 @@
+<mat-card class="register-card">
+  <mat-card-header>
+    <mat-card-title>Register</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+ 
+<form class="register-form" [formGroup]="registrationForm" (ngSubmit)="submitData()">
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Enter your name" formControlName="full_name" >
+    <mat-error *ngIf="registrationForm.get('full_name')?.invalid && (registrationForm.get('full_name')?.dirty || registrationForm.get('full_name')?.touched)">
+      <span>Name is required.</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput type="email" placeholder="Enter your email"  formControlName="email" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" placeholder="Enter your password"   formControlName="password" >
+    
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Confirm Password</mat-label>
+    <input matInput type="password" placeholder="Confirm your password" formControlName="confirmPassword" >
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Register</button>
+</form>
+</mat-card-content>
+</mat-card>
